@@ -1,0 +1,95 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    padding:5px;
+    border-radius: 3px;
+}
+
+.logo {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #005cb2;
+    color:#fff;
+    overflow: auto;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color:#fff;
+}
+
+.p10 {
+    padding:10px;
+}
+
+.step-3 table {
+    width: 100%;
+}
+
+.step-3 table th, .step-3 table td {
+    padding:10px;
+}
+
+.step-1, .step-2, .step-3 {
+    border : 2px solid #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.step-1, .step-3 {
+    padding:40px;
+}
+
+.btn {
+    display: inline-block;
+    padding:10px;
+    border:2px solid #fff;
+    background: #6ab7ff;
+    color:#fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+}
+
+.grid > * {
+    flex-basis: 200px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.grid-box {
+    border:2px solid #fff;
+}
+
+.background-empty {
+    background: #5f8eb9;
+}
+
+.background-player1 {
+    background: #024420;
+}
+
+.background-player2 {
+    background: #dd3b09;
+}

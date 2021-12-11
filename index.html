@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <div class="logo p10">
+            <a :href="href">HOMEPAGE</a>
+        </div>    
+
+        <div class="container">
+
+            <div v-if="step == 1" class="step-1">
+
+                <h2>WHAT ARE THE PLAYERS NAME?</h2>
+                <br>
+                <div class="p10">
+                    Player 1 : <input type="text" v-model="player1">
+                </div>
+                <div class="p10">
+                    Player 2 : <input type="text" v-model="player2">
+                </div>
+                <br>
+                <br>            
+                <div class="p10">
+                    The challenge between {{ player1 }} and {{ player2 }} is about to start
+                </div>
+                <div class="p10">
+                    <div class="btn" @click="step=2">
+                        START!
+                    </div>
+                </div>            
+            </div>
+        
+            <div v-else-if="step == 2" class="step-2">
+                <div class="p10">
+                    Playing {{ player1 }} and {{ player2 }}
+                </div>
+                <div class="p10">
+                    <div class="grid">
+                        <div v-for="(gridBox, index) in gameGrid" :class="getGridBoxClassesArray(gridBox)" @click="setGridBoxValue(gridBox)">
+                        </div>                                                                                                                                                                                                    
+                    </div>
+                </div>
+                <div class="p10" v-if="isOver == true">
+                    <div class="btn" @click="showWinners()">
+                        MATCH IS OVER!
+                    </div>        
+                </div>                 
+            </div>
+            
+            <div v-else class="step-3">
+                <div class="p10">
+                    Filter : <input type="text" v-model="filteredWinners">
+                </div>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>WINNERS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(winner, index) in filteredWinnersList">
+                            <td>{{ winner }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <div class="btn" @click="playAgain()">
+                   PLAY AGAIN!
+                </div>
+            </div>  
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="script.js"></script>    
+    
+</body>
+</html>
