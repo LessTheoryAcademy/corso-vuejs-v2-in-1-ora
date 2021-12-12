@@ -35,7 +35,7 @@ var app = new Vue({
 
         setGridBoxValue : function(gridBox) {
 
-            if (gridBox.value == '') {
+            if (gridBox.value == '' && this.isOver == false) {
 
                 gridBox.value = this.currentPlayer;
                 
@@ -83,80 +83,83 @@ var app = new Vue({
         },
         checkWinner : function() {
 
-            let isOverTemp = true;
-    
-            this.gameGrid.forEach(gridBox => {
+            if (this.isOver == false) {  
                 
-                if(gridBox.value == '') {
-                    isOverTemp = false;
+                let isOverTemp = true;
+
+                this.gameGrid.forEach(gridBox => {
+
+                    if(gridBox.value == '') {
+                        isOverTemp = false;
+                    }
+                });
+
+                let winner = 'Draw';
+
+                if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[1].value && this.gameGrid[1].value == this.gameGrid[2].value) {
+
+                    winner = this.gameGrid[0].value;
+                    isOverTemp = true;
                 }
-            });
-    
-            let winner = 'Draw';
-    
-            if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[1].value && this.gameGrid[1].value == this.gameGrid[2].value) {
-                
-                winner = this.gameGrid[0].value;
-                isOverTemp = true;
-            }
-    
-            if (this.gameGrid[3].value != '' && this.gameGrid[3].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[5].value) {
-                
-                winner = this.gameGrid[3].value;
-                isOverTemp = true;
-            }
-            
-            if (this.gameGrid[6].value != '' && this.gameGrid[6].value == this.gameGrid[7].value && this.gameGrid[7].value == this.gameGrid[8].value) {
-                
-                winner = this.gameGrid[6].value;
-                isOverTemp = true;
-            }    
-    
-            // --------------
-            
-            if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[3].value && this.gameGrid[3].value == this.gameGrid[6].value) {
-                
-                winner = this.gameGrid[0].value;
-                isOverTemp = true;
-            }
-    
-            if (this.gameGrid[1].value != '' && this.gameGrid[1].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[7].value) {
-                
-                winner = this.gameGrid[1].value;
-                isOverTemp = true;
-            }
-            
-            if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[5].value && this.gameGrid[5].value == this.gameGrid[8].value) {
-                
-                winner = this.gameGrid[2].value;
-                isOverTemp = true;
-            }                 
-    
-            // --------------
-            
-            if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[8].value) {
-                
-                winner = this.gameGrid[0].value;
-                isOverTemp = true;
-            }
-    
-            if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[6].value) {
-                
-                winner = this.gameGrid[2].value;
-                isOverTemp = true;
-            }            
-    
-            if (isOverTemp == true) {
-    
-                this.isOver = true;
-    
-                if (winner == '1') {
-    
-                    this.winners.push(this.player1);
-    
-                } else if (winner == '2') {
-    
-                    this.winners.push(this.player2);
+
+                if (this.gameGrid[3].value != '' && this.gameGrid[3].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[5].value) {
+
+                    winner = this.gameGrid[3].value;
+                    isOverTemp = true;
+                }
+
+                if (this.gameGrid[6].value != '' && this.gameGrid[6].value == this.gameGrid[7].value && this.gameGrid[7].value == this.gameGrid[8].value) {
+
+                    winner = this.gameGrid[6].value;
+                    isOverTemp = true;
+                }    
+
+                // --------------
+
+                if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[3].value && this.gameGrid[3].value == this.gameGrid[6].value) {
+
+                    winner = this.gameGrid[0].value;
+                    isOverTemp = true;
+                }
+
+                if (this.gameGrid[1].value != '' && this.gameGrid[1].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[7].value) {
+
+                    winner = this.gameGrid[1].value;
+                    isOverTemp = true;
+                }
+
+                if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[5].value && this.gameGrid[5].value == this.gameGrid[8].value) {
+
+                    winner = this.gameGrid[2].value;
+                    isOverTemp = true;
+                }                 
+
+                // --------------
+
+                if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[8].value) {
+
+                    winner = this.gameGrid[0].value;
+                    isOverTemp = true;
+                }
+
+                if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[6].value) {
+
+                    winner = this.gameGrid[2].value;
+                    isOverTemp = true;
+                }            
+
+                if (isOverTemp == true) {
+
+                    this.isOver = true;
+
+                    if (winner == '1') {
+
+                        this.winners.push(this.player1);
+
+                    } else if (winner == '2') {
+
+                        this.winners.push(this.player2);
+                    }
                 }
             }
         }, 
