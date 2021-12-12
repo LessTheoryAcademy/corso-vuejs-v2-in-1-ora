@@ -82,84 +82,81 @@ var app = new Vue({
             return classes;
         },
         checkWinner : function() {
-
-            if (this.isOver == false) {  
                 
-                let isOverTemp = true;
+            let isOverTemp = true;
 
-                this.gameGrid.forEach(gridBox => {
+            this.gameGrid.forEach(gridBox => {
 
-                    if(gridBox.value == '') {
-                        isOverTemp = false;
-                    }
-                });
-
-                let winner = 'Draw';
-
-                if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[1].value && this.gameGrid[1].value == this.gameGrid[2].value) {
-
-                    winner = this.gameGrid[0].value;
-                    isOverTemp = true;
+                if(gridBox.value == '') {
+                    isOverTemp = false;
                 }
+            });
 
-                if (this.gameGrid[3].value != '' && this.gameGrid[3].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[5].value) {
+            let winner = 'Draw';
 
-                    winner = this.gameGrid[3].value;
-                    isOverTemp = true;
-                }
+            if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[1].value && this.gameGrid[1].value == this.gameGrid[2].value) {
 
-                if (this.gameGrid[6].value != '' && this.gameGrid[6].value == this.gameGrid[7].value && this.gameGrid[7].value == this.gameGrid[8].value) {
+                winner = this.gameGrid[0].value;
+                isOverTemp = true;
+            }
 
-                    winner = this.gameGrid[6].value;
-                    isOverTemp = true;
-                }    
+            if (this.gameGrid[3].value != '' && this.gameGrid[3].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[5].value) {
 
-                // --------------
+                winner = this.gameGrid[3].value;
+                isOverTemp = true;
+            }
 
-                if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[3].value && this.gameGrid[3].value == this.gameGrid[6].value) {
+            if (this.gameGrid[6].value != '' && this.gameGrid[6].value == this.gameGrid[7].value && this.gameGrid[7].value == this.gameGrid[8].value) {
 
-                    winner = this.gameGrid[0].value;
-                    isOverTemp = true;
-                }
+                winner = this.gameGrid[6].value;
+                isOverTemp = true;
+            }    
 
-                if (this.gameGrid[1].value != '' && this.gameGrid[1].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[7].value) {
+            // --------------
 
-                    winner = this.gameGrid[1].value;
-                    isOverTemp = true;
-                }
+            if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[3].value && this.gameGrid[3].value == this.gameGrid[6].value) {
 
-                if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[5].value && this.gameGrid[5].value == this.gameGrid[8].value) {
+                winner = this.gameGrid[0].value;
+                isOverTemp = true;
+            }
 
-                    winner = this.gameGrid[2].value;
-                    isOverTemp = true;
-                }                 
+            if (this.gameGrid[1].value != '' && this.gameGrid[1].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[7].value) {
 
-                // --------------
+                winner = this.gameGrid[1].value;
+                isOverTemp = true;
+            }
 
-                if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[8].value) {
+            if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[5].value && this.gameGrid[5].value == this.gameGrid[8].value) {
 
-                    winner = this.gameGrid[0].value;
-                    isOverTemp = true;
-                }
+                winner = this.gameGrid[2].value;
+                isOverTemp = true;
+            }                 
 
-                if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[6].value) {
+            // --------------
 
-                    winner = this.gameGrid[2].value;
-                    isOverTemp = true;
-                }            
+            if (this.gameGrid[0].value != '' && this.gameGrid[0].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[8].value) {
 
-                if (isOverTemp == true) {
+                winner = this.gameGrid[0].value;
+                isOverTemp = true;
+            }
 
-                    this.isOver = true;
+            if (this.gameGrid[2].value != '' && this.gameGrid[2].value == this.gameGrid[4].value && this.gameGrid[4].value == this.gameGrid[6].value) {
 
-                    if (winner == '1') {
+                winner = this.gameGrid[2].value;
+                isOverTemp = true;
+            }            
 
-                        this.winners.push(this.player1);
+            if (isOverTemp == true) {
 
-                    } else if (winner == '2') {
+                this.isOver = true;
 
-                        this.winners.push(this.player2);
-                    }
+                if (winner == '1') {
+
+                    this.winners.push(this.player1);
+
+                } else if (winner == '2') {
+
+                    this.winners.push(this.player2);
                 }
             }
         }, 
