@@ -13,7 +13,8 @@ Impareremo Vue.js v2 realizzando un progetto, passo a passo, e durante lo svilup
 
 Corso Vue.js v2 in 1 ora : il corso per imparare Vue.js v2 in pochissimo tempo, con meno teoria e più pratica! 
 
-
+## Vuoi seguire tutto il corso? Eccoti il link alla playlist con tutti i video! :) 
+https://www.youtube.com/watch?v=nJ3HjdCn59M&list=PLl8lST6xZTJbDz5NQU9llp1jQyGnrN5Pj
 
 Buono studio! :)
 
